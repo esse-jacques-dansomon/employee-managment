@@ -28,11 +28,6 @@ public class EmployeeService {
 
     public void paySalary(int employeeId, double amount, Transfert tranfert) {
         Employee employee = employeeRepository.findById((long) employeeId);
-        if(employee.calculerSalaire() < amount) {
-            throw new IllegalArgumentException("Insufficient funds");
-        }
-
-
         tranfert.process(employee, amount);
     }
 }

@@ -22,4 +22,18 @@ public class ContractEmployee extends Employee {
     public double calculerSalaire() {
         return salaryBrut + prime - retenue;
     }
+
+    @Override
+    public String toString() {
+        return "ContractEmployee{" +
+                "salaryBrut=" + salaryBrut +
+                ", prime=" + prime +
+                ", retenue=" + retenue +
+                ", service=" + service +
+                ", id=" + id +
+                ", matricule='" + matricule + '\'' +
+                ", status=" + status +
+                ", onLeaveOffDays=" + onLeaveOffDays +
+                '}';
+    }
 }

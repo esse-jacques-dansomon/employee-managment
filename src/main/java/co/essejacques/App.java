@@ -1,7 +1,6 @@
 package co.essejacques;
 
 import co.essejacques.entities.*;
-import co.essejacques.enums.PaymentMethod;
 import co.essejacques.services.ServiceService;
 import co.essejacques.services.EmployeeService;
 import co.essejacques.services.Transfert.Transfert;
@@ -180,14 +179,14 @@ public class App {
         System.out.print("Entrez le montant du salaire : ");
         double amount = scanner.nextDouble();
         scanner.nextLine(); // Consume newline
-        System.out.print("Entrez la méthode de paiement (\n1- BANK_TRANSFER,n\1- OM, \n3- WAVE) : ");
+        System.out.print("Entrez la méthode de paiement (\n1- BANK_TRANSFER,\n 2- OM, \n 3- WAVE) : ");
         int paymentMethod = scanner.nextInt();
         Transfert transfert = null;
         if(paymentMethod == 1){
             transfert = new TransfertBank();
         }else if(paymentMethod == 2){
             transfert = new TransfertOM();
-        }else if(paymentMethod == 3) {
+        }else{
             transfert = new TransfertWave();
         }
 

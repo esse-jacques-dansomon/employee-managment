@@ -20,4 +20,16 @@ public class ServiceProviderEmployee extends Employee {
     public double calculerSalaire() {
         return serviceCost;
     }
+
+    @Override
+    public String toString() {
+        return "ServiceProviderEmployee{" +
+                "servicePeriod=" + servicePeriod +
+                ", serviceCost=" + serviceCost +
+                ", id=" + id +
+                ", matricule='" + matricule + '\'' +
+                ", status=" + status +
+                ", onLeaveOffDays=" + onLeaveOffDays +
+                '}';
+    }
 }

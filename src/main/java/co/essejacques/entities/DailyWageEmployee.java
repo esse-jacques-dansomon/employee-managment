@@ -23,4 +23,17 @@ public class DailyWageEmployee extends Employee  {
     public double calculerSalaire() {
         return dailyCost * numberOfDaysWorked;
     }
+
+    @Override
+    public String toString() {
+        return "DailyWageEmployee{" +
+                "dailyCost=" + dailyCost +
+                ", numberOfDaysWorked=" + numberOfDaysWorked +
+                ", salary=" + salary +
+                ", id=" + id +
+                ", matricule='" + matricule + '\'' +
+                ", status=" + status +
+                ", onLeaveOffDays=" + onLeaveOffDays +
+                '}';
+    }
 }

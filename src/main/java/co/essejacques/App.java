@@ -4,6 +4,10 @@ import co.essejacques.entities.*;
 import co.essejacques.enums.PaymentMethod;
 import co.essejacques.services.ServiceService;
 import co.essejacques.services.EmployeeService;
+import co.essejacques.services.Transfert.Transfert;
+import co.essejacques.services.Transfert.TransfertBank;
+import co.essejacques.services.Transfert.TransfertOM;
+import co.essejacques.services.Transfert.TransfertWave;
 
 import java.util.Scanner;
 
@@ -169,19 +173,25 @@ public class App {
 
     private static void paySalary(EmployeeService employeeService, Scanner scanner) {
         System.out.println("=== Virer Salaire ===");
+
         System.out.print("Entrez l'ID de l'employé : ");
         int employeeId = scanner.nextInt();
         scanner.nextLine(); // Consume newline
         System.out.print("Entrez le montant du salaire : ");
         double amount = scanner.nextDouble();
         scanner.nextLine(); // Consume newline
-        System.out.print("Entrez la méthode de paiement (BANK_TRANSFER, MONEY_ORDER, WAVE) : ");
-        String paymentMethodStr = scanner.nextLine().toUpperCase();
-        PaymentMethod paymentMethod = PaymentMethod.valueOf(paymentMethodStr);
+        System.out.print("Entrez la méthode de paiement (\n1- BANK_TRANSFER,n\1- OM, \n3- WAVE) : ");
+        int paymentMethod = scanner.nextInt();
+        Transfert transfert = null;
+        if(paymentMethod == 1){
+            transfert = new TransfertBank();
+        }else if(paymentMethod == 2){
+            transfert = new TransfertOM();
+        }else if(paymentMethod == 3) {
+            transfert = new TransfertWave();
+        }
 
-        // Logique pour verser le salaire
-        // Par exemple:
-//        employeeService.paySalary(employeeId, amount, paymentMethod);
+        employeeService.paySalary(employeeId, amount, transfert);
     }
 
     private static void registerLeave(EmployeeService employeeService, Scanner scanner) {

@@ -4,6 +4,7 @@ import co.essejacques.entities.Employee;
 import co.essejacques.repository.interfaces.IEmployeeRepository;
 
 import co.essejacques.repository.list.EmployeeRepository;
+import co.essejacques.services.Transfert.Transfert;
 
 import java.util.List;
 
@@ -23,5 +24,15 @@ public class EmployeeService {
 
     public List<Employee> findAll() {
         return employeeRepository.findAll();
+    }
+
+    public void paySalary(int employeeId, double amount, Transfert tranfert) {
+        Employee employee = employeeRepository.findById((long) employeeId);
+        if(employee.calculerSalaire() < amount) {
+            throw new IllegalArgumentException("Insufficient funds");
+        }
+
+
+        tranfert.process(employee, amount);
     }
 }

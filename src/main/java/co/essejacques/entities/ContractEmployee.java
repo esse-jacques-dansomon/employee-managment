@@ -3,7 +3,7 @@ package co.essejacques.entities;
 import lombok.Data;
 
 @Data
-public class ContractEmployee extends Employee{
+public class ContractEmployee extends Employee {
     private double salaryBrut;
     private double prime;
     private double retenue;
@@ -17,7 +17,9 @@ public class ContractEmployee extends Employee{
         this.service = service;
     }
 
-    public double calculerSalaireNet() {
+
+    @Override
+    public double calculerSalaire() {
         return salaryBrut + prime - retenue;
     }
 }

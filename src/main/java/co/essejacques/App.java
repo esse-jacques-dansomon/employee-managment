@@ -186,17 +186,17 @@ public class App {
 
     private static void registerLeave(EmployeeService employeeService, Scanner scanner) {
         System.out.println("=== Enregistrer un congé pour un Employé ===");
+
         System.out.print("Entrez l'ID de l'employé : ");
-        int employeeId = scanner.nextInt();
+        double employeeId = scanner.nextDouble();
         scanner.nextLine(); // Consume newline
-        System.out.print("Entrez le type de congé : ");
-        String leaveType = scanner.nextLine();
         System.out.print("Entrez le nombre de jours de congé : ");
         int numberOfDays = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
         // Logique pour enregistrer le congé
         // Par exemple:
-//        employeeService.takeLeave(employeeId, leaveType, numberOfDays);
+        employeeService.takeLeave((long) employeeId, numberOfDays);
+        System.out.println("Congé enregistré avec succès.");
     }
 }

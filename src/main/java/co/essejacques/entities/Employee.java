@@ -12,7 +12,7 @@ public abstract class  Employee {
     protected Long id;
     protected String matricule;
     protected EmployeeStatus status ;
-    protected double onLeaveOffDays;
+    protected int onLeaveOffDays;
 
     protected Employee() {
         numEmployee++;
@@ -28,10 +28,24 @@ public abstract class  Employee {
         this.onLeaveOffDays = 0;
     }
 
-    protected void seOnLeaveOffDays(double days){
+    public void setOnLeaveOffDays(int days){
         this.onLeaveOffDays = days;
         this.status = EmployeeStatus.ON_LEAVE;
     }
+
+    public void setPresent(){
+        this.status = EmployeeStatus.PRESENT;
+    }
+
+    public void setAbsent(){
+        this.status = EmployeeStatus.ABSENT;
+    }
+
+    public void setSick(){
+        this.status = EmployeeStatus.SICK;
+    }
+
+    public abstract double calculerSalaire();
 
 
 }

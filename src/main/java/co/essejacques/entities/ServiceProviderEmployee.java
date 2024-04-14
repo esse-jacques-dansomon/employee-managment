@@ -9,13 +9,15 @@ public class ServiceProviderEmployee extends Employee {
     private double serviceCost;
 
 
-    public double calculerSalaireNet() {
-        return serviceCost;
-    }
 
     public ServiceProviderEmployee(String matricule, String servicePeriod, double serviceCost) {
         super(matricule);
         this.servicePeriod = servicePeriod;
         this.serviceCost = serviceCost;
+    }
+
+    @Override
+    public double calculerSalaire() {
+        return serviceCost;
     }
 }

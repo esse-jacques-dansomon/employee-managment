@@ -18,11 +18,6 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public Employee update(Employee employee) {
-        Employee employeeToUpdate = findById(employee.getId());
-        if (employeeToUpdate != null) {
-            employeeToUpdate.setMatricule(employee.getMatricule());
-            return employeeToUpdate;
-        }
         return null;
     }
 
